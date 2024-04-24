@@ -13,6 +13,17 @@ services:
     networks:
       - backend
 
+  nextjs:
+    build:
+      context: ./frontend
+    container_name: nextjs
+    restart: always
+    command: npm run dev
+    expose:
+      - 3000
+    networks:
+      - backend
+
   nginx:
     image: nginx:latest
     ports:
@@ -25,3 +36,4 @@ services:
 networks:
   backend:
     driver: bridge
+
