@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { ThemeProvider } from "next-themes";
+import Features from "@/compontents/Features";
 import Navbar from "../compontents/navbar";
 import "./globals.css";
+import Home from "@/compontents/Features";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,15 +20,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-      <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-          >
-        <Navbar />
-        {children}
+      <body className={inter.className + " dark:bg-gray-700"}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Navbar />
+          <Features />
+          {children}
         </ThemeProvider>
       </body>
     </html>
